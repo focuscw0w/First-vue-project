@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - formular</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div id="app">
+
+        <article>
+            <span class="subscribe-text">Subscribe to our Weekly Newsletter</span>
+            <form class="form" @submit.prevent="add">
+                <input type="email" id="address-input" placeholder="Email address" v-model="inputMail">
+                <button type="button" class="subscribe-btn" @click="add">Subscribe</button>
+            </form>
+            <p>You can read the previous issues and listen to our podcast at <a href="#" class="vue-link">news.vuejs.org</a></p>
+        </article>
+
+         <transition-group name="li">
+                <li v-for="(mail, index) in allMails" :key="index">{{mail}}
+                    <span class="remove-li" @click="remove(mail)">X</span> 
+                </li>
+        </transition-group>        
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
